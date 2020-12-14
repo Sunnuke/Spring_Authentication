@@ -632,3 +632,27 @@ java.net.UnknownHostException: jope.ow2.org
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2020-12-14 11:54:34.301
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 12:11:05.167
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.pLsfMIXr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 12:11:05.168
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.pLsfMIXr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 12:11:05.168
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 12:11:05.169
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.pLsfMIXr => OK
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-12-14 12:11:06.707
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-12-14 12:11:06.708
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-12-14 12:11:08.181
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-12-14 12:11:08.181
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
