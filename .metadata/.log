@@ -293,3 +293,81 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:03.470
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:03.471
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@2441c0b[org.springframework.tooling.boot.ls:1.23.0.202010230633(id=673)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:03.474
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:03.504
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.eclipse.jface 2 0 2020-12-14 08:34:03.851
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-12-14 08:34:03.851
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.togglelinecommentcommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5e41a4e7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@39a7de2a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.715
+!MESSAGE Boot LS startup time from start to initialized: 3233ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.861
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.DkPTADLvisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.865
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.868
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.869
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.869
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.870
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.DkPTADLv => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.880
+!MESSAGE classpath=101 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.885
+!MESSAGE buffering callback sts4.classpath.DkPTADLv authentication false 101
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.886
+!MESSAGE executing callback sts4.classpath.DkPTADLv 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:34:06.924
+!MESSAGE executing callback sts4.classpath.DkPTADLv SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:35:59.183
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.DkPTADLv
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:35:59.184
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.DkPTADLv
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:35:59.184
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-14 08:35:59.186
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.DkPTADLv => OK
