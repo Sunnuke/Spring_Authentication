@@ -14,13 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practice.authentication.models.User;
 import com.practice.authentication.services.UserService;
+import com.practice.authentication.validator.UserValidator;
 
 @Controller
 public class Users {
 	
 	@Autowired
     private UserService userService;
-    
+	@Autowired
+	private UserValidator userValidator;
+	
 	// Displays Forms to Register or Login
     @RequestMapping("/registration")
     public String registerForm(@ModelAttribute("user") User user) {
@@ -34,7 +37,8 @@ public class Users {
     // Processing routes for Registering or Logging in
     @RequestMapping(value="/registration", method=RequestMethod.POST)
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
-        // if result has errors, return the registration page (don't worry about validations just now)
+    	userValidator.validate(user, result);
+    	// if result has errors, return the registration page (don't worry about validations just now)
     	if (result.hasErrors()) {
 			return "redirect:/registration";
 		} 
