@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +13,13 @@
 <body>
 <div class="container-fluid">
     <h1>Register!</h1>
-    
-    <p><form:errors path="user.*"/></p>
-    
+    <c:forEach items="${errors}" var="error">
+    	<p style="color: red;"><c:out value="${error}"/></p>
+    </c:forEach>
     <form:form method="POST" action="/registration" modelAttribute="user">
         <p>
             <form:label path="email">Email:</form:label>
-            <form:input type="email" path="email"/>
+            <form:input path="email"/>
         </p>
         <p>
             <form:label path="password">Password:</form:label>

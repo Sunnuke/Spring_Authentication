@@ -12,7 +12,7 @@
 <body>
 <div class="container-fluid">
     <h1>Login</h1>
-    <p><c:out value="${error}" /></p>
+    <p style="color: red;"><c:out value="${errors}" /></p>
     <form method="post" action="/login">
         <p>
             <label for="email">Email</label>

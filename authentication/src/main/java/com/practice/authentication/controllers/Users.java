@@ -1,5 +1,8 @@
 package com.practice.authentication.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -7,22 +10,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.practice.authentication.models.User;
 import com.practice.authentication.services.UserService;
-import com.practice.authentication.validator.UserValidator;
 
 @Controller
 public class Users {
 	
 	@Autowired
     private UserService userService;
-	@Autowired
-	private UserValidator userValidator;
 	
 	// Displays Forms to Register or Login
     @RequestMapping("/registration")
@@ -36,10 +38,18 @@ public class Users {
     
     // Processing routes for Registering or Logging in
     @RequestMapping(value="/registration", method=RequestMethod.POST)
-    public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
-    	userValidator.validate(user, result);
+    public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session, RedirectAttributes redirect) {
+    	List<String> errors = new ArrayList<String>();
+    	errors.add(userService.validating(user, result));
+    	for (Object object : result.getAllErrors()) {
+    		FieldError fieldError = (FieldError) object;
+	        if(fieldError.getDefaultMessage() != null) {
+	        	errors.add(fieldError.getDefaultMessage());
+	        }
+    	}
     	// if result has errors, return the registration page (don't worry about validations just now)
     	if (result.hasErrors()) {
+    		redirect.addFlashAttribute("errors", errors);
 			return "redirect:/registration";
 		} 
     	// else, save the user in the database, save the user id in session, and redirect them to the /home route
@@ -50,8 +60,9 @@ public class Users {
 			return "redirect:/home";
 		}	
     }
+
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
+    public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session, RedirectAttributes redirect) {
         // if the user is authenticated, save their user id in session
     	if (userService.authenticateUser(email, password)) {
     		User user = userService.findByEmail(email);
@@ -61,6 +72,7 @@ public class Users {
 		}
         // else, add error messages and return the login page
     	else {
+    		redirect.addFlashAttribute("errors", "User Name or Password is incorrect!");
     		return "redirect:/login";
     	}
     }

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
 
 import com.practice.authentication.models.User;
 import com.practice.authentication.repositories.UserRepository;
@@ -54,5 +55,14 @@ public class UserService {
                 return false;
             }
         }
+    }
+    
+    public String validating(Object target, Errors errors) {
+        User user = (User) target;
+        
+        if (!user.getPasswordConfirmation().equals(user.getPassword())) {
+        	return "Passwords must match!";
+        } 
+        return null;
     }
 }
